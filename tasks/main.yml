@@ -26,3 +26,16 @@
     name: docker-ce
     state: latest
     update_cache: yes
+
+- name: Install pip
+  become: True
+  package:
+    name: python3-pip
+    state: latest
+
+- name: Install Docker python module
+  become: True
+  pip:
+    name: docker
+    state: latest
+
