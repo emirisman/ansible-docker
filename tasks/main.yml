@@ -27,6 +27,13 @@
     state: latest
     update_cache: yes
 
+- name: Add {{ ansible_user }} to docker group
+  become: True
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: True
+
 - name: Install pip
   become: True
   package:
